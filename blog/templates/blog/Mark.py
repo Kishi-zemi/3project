@@ -79,10 +79,10 @@ class MarkClass:
 
             html = """
                 <a href="{url} "target="_blank">{name}</a></br>
-                <img width="60" src="icon/situation/left/{situation1}.jpg">
-                <img width="60" src="icon/situation/right/{situation2}.jpg">
-                <img width="60" src="icon/weather/{weather}.jpg">
-                <img width="60" src="icon/time/{time}.jpg">
+                <img width="60" src="blog/icon/situation/left/{situation1}.jpg">
+                <img width="60" src="blog/icon/situation/right/{situation2}.jpg">
+                <img width="60" src="blog/icon/weather/{weather}.jpg">
+                <img width="60" src="blog/icon/time/{time}.jpg">
                 """.format(url=url,name=tooltip,situation1=situation1,situation2=situation2,weather=weather,time=time)
             iframe = folium.IFrame(html=html, width=100, height=300)
             popup = folium.Popup(html, max_width=2650)
