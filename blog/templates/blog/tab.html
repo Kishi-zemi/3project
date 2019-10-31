@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang=ja>
 <head>
@@ -8,14 +9,14 @@
 
   @font-face {
   font-family: 'Kaiso-Next-B';
-    src: url('Kaiso-Next-B.otf') format('opentype');
+    src: url('{% static 'font/Kaiso-Next-B.otf'%}') format('opentype');
   }
   body{
     font-family: "Kaiso-Next-B";
   }
 
 body {
-  background-image: url("image.jpg");
+  background-image: url('{% static 'img/image.jpg'%}');
   background-repeat: no-repeat;
   #background-attachment: fixed;
   background-position: 90% 60%;

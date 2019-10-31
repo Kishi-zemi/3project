@@ -4,12 +4,14 @@ import Mark as m
 
 
 def main():
+    print("start")
     dbname = 'h28_30.db'
 
     conn = sqlite3.connect(dbname)
     cur = conn.cursor()
 
     df1 = psql.read_sql("SELECT * FROM sample WHERE 発生年 = 2016 AND 甲_年齢 IN ('65～74歳', '75歳以上')", conn)
+    print("df1 finished")
     m1 = m.MarkClass(df1,'blue','2016')
     m1.marker()
 

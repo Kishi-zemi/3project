@@ -17,6 +17,7 @@ class MarkClass:
         self.__setmark()
         folium.LayerControl(collapsed=True).add_to(self.map)
         self.map.save(self.year+'.html')
+        print("save finished!")
 
     def __setmark(self):
 
@@ -78,13 +79,15 @@ class MarkClass:
             ic = self.__makeIC(injure_list[i])
 
             html = """
+            {{% raw %}}
                 <a href="{url} "target="_blank">{name}</a></br>
-                <img width="60" src="icon/situation/left/{situation1}.jpg">
-                <img width="60" src="icon/situation/right/{situation2}.jpg">
-                <img width="60" src="icon/weather/{weather}.jpg">
-                <img width="60" src="icon/time/{time}.jpg">
+                <img width="60" src="{{% static 'img/situation/left/{situation1}.jpg'%}}">
+                <img width="60" src="{{% static 'img/situation/right/{situation2}.jpg'%}}">
+                <img width="60" src="{{% static 'img/weather/{weather}.jpg'%}}">
+                <img width="60" src="{{% static 'img/time/{time}.jpg'%}}">
+                {{% endraw %}}
                 """.format(url=url,name=tooltip,situation1=situation1,situation2=situation2,weather=weather,time=time)
-            iframe = folium.IFrame(html=html, width=100, height=300)
+            #iframe = folium.IFrame(html=html, width=100, height=300)
             popup = folium.Popup(html, max_width=2650)
 
             color = 'gray'
